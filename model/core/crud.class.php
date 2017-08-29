@@ -2,16 +2,16 @@
 
 class Crud extends PDO {
 
-	private $dns, $db, $user, $pass;
+	private $host, $db, $user, $pass;
 
-	public function __construct ($dns, $db, $user, $pass) {
+	public function __construct ($host, $db, $user, $pass) {
 		$this->db = $db;
-		$this->dns = $dns;
+		$this->host = $host;
 		$this->user = $user;
 		$this->pass = $pass;
 
 		try {
-			parent::__construct("mysql:host=$dns;dbname=$this->db", "$this->user", "$this->pass");
+			parent::__construct("mysql:host=$host;dbname=$this->db", "$this->user", "$this->pass");
 		} catch (PDOException $e) {
 			echo "Ocoreu um erro ao estabelecer conexão com banco de dados ".$e->getMessage();
 		}
@@ -21,10 +21,11 @@ class Crud extends PDO {
 		$queryAttr = implode(',', array_keys($datas));
 		$queryValues = "'". implode("','", $datas) ."'";
 
-		$sql = "INSERT INTO $table($queryAttr) VALUES($queryValues)";
+		$sql = "INSERT INTO $table ($queryAttr) VALUES ($queryValues)";
 		$stmt = $this->prepare($sql);
 
 		return $stmt->execute();
+
 	}
 
 	public function find ($table) {
@@ -33,7 +34,7 @@ class Crud extends PDO {
 	}
 
 	public function findById ($table, $id) {
-		$stmt = $this->query("SELECT * FROM $table WHERE id=$id");
+		$stmt = $this->query("SELECT * FROM $table WHERE id = $id");
 		return $stmt->fetch();
 	}
 
@@ -52,7 +53,7 @@ class Crud extends PDO {
 
 		$setQuerys = implode(',', $setValues);
 
-		$sql = "UPDATE $table SET $setQuerys WHERE id=$id";
+		$sql = "UPDATE $table SET $setQuerys WHERE id =$id";
 		$stmt = $this->prepare($sql);
 		return $stmt->execute();
 	}
