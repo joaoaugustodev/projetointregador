@@ -1,6 +1,6 @@
 <?php
 
-class DataBase extends PDO {
+class Crud extends PDO {
 
 	private $dns, $db, $user, $pass;
 
