@@ -11,7 +11,7 @@ class Crud extends PDO {
 		$this->pass = $pass;
 
 		try {
-			parent::__construct("mysql:host=$host;dbname=$this->db", "$this->user", "$this->pass");
+			parent::__construct("sqlserver:host=$this->host;dbname=$this->db", "$this->user", "$this->pass");
 		} catch (PDOException $e) {
 			echo "Ocoreu um erro ao estabelecer conexão com banco de dados ".$e->getMessage();
 		}
@@ -39,7 +39,7 @@ class Crud extends PDO {
 	}
 
 	public function delete ($table, $id) {
-		$sql = "DELETE FROM $table WHERE id=$id";
+		$sql = "DELETE FROM $table WHERE id = $id";
 		$stmt = $this->prepare($sql);
 		return $stmt->execute();
 	}
@@ -53,7 +53,7 @@ class Crud extends PDO {
 
 		$setQuerys = implode(',', $setValues);
 
-		$sql = "UPDATE $table SET $setQuerys WHERE id =$id";
+		$sql = "UPDATE $table SET $setQuerys WHERE id = $id";
 		$stmt = $this->prepare($sql);
 		return $stmt->execute();
 	}
