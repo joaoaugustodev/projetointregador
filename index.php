@@ -13,7 +13,7 @@
       <!-- Compiled and minified JavaScript -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
-      <link rel="stylesheet" href="css/estilo.css">
+      <link rel="stylesheet" href="./public/css/estilo.css">
     
 </head>
 <body>
@@ -21,13 +21,13 @@
     <section>
         <article>
             <div id="login">
-                <img id="img1" src="img/2.jpg" alt="">
+                <img id="img1" src="./public/images/2.jpg" alt="">
                 <div class="row">
                     <div class="col s12 m6 offset-m3">
                     <div id="cardLog" class="card white">
                         <div id="title" class="card-action teal darken-1 z-depth-5">
                             <div class="center">
-                                <img src="img/fox.png" alt="">
+                                <img src="./public/images/fox.png" alt="">
                             </div>
                         </div>
                         <div class="card-content white-text">
@@ -62,10 +62,10 @@
 
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <script src="http://github.hubspot.com/odometer/odometer.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <!-- FadeIn clientes 1 -->
-  <script src="init.js"></script>
+  <script src="./public/javascript/init.js"></script>
 </body>
 </html>
 
