@@ -14,7 +14,12 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.0/js/materialize.min.js"></script>
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" href="./public/css/estilo.css">
-    
+
+      <!-- Title -->
+      <title>FOXTROT - OS MELHORES SERVIÇOS</title>
+
+      <!-- Icon -->
+      <link rel="icon" href="./public/images/fox.png">
 </head>
 <body>
 
@@ -32,22 +37,23 @@
                         </div>
                         <div class="card-content white-text">
                             <div class="row">
-                                <form class="col s12">
+                                <form class="col s12" method="post" action="./db/login.php">
                                     <div class="row">
                                     <div class="input-field col s10 offset-s1">
-                                        <input id="login_input" type="text" class="validate black-text text-darken-1">
+                                        <input id="login_input" type="text" name="user" class="validate black-text text-darken-1">
                                         <label for="login_input">Login</label>
                                     </div>
                                     <div class="input-field col s10 offset-s1">
-                                        <input id="pass" type="password" class="validate orange-text">
+                                        <input id="pass" type="password" name="password" class="validate orange-text">
                                         <label for="pass">Senha</label>
                                     </div>
                                     </div>
+                                    <br>
+                                    <div class="center">
+                                        <button type="submit" class="btn waves-effect waves-darken z-depth-3 orange darken-1" type="submit" name="action">entrar</button>
+                                    </div>
                                 </form>
                             </div>                
-                        </div>
-                        <div class="center">
-                            <button class="btn waves-effect waves-darken z-depth-3 orange darken-1" type="submit" name="action">entrar</button>
                         </div>
                         <div class="center">
                             <a href="#!" class="orange-text">Esqueci minha senha</a>
