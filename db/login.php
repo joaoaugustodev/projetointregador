@@ -1,5 +1,30 @@
 <?php
 
-require_once("./core/crud.class.php");
+session_start();
 
-echo $_REQUEST['user'];
+$user = $_REQUEST['user'];
+$pass = $_REQUEST['password'];
+
+
+$db_host = "senacprojeto.database.windows.net";
+$db_name = "PI2";
+$db_user = "senacii";
+$db_pass = "Senac2017";
+$dsn = "Driver={SQL Server};Server=$db_host;Port=1433;Database=$db_name;";
+
+if( !$db = odbc_connect($dsn, $db_user, $db_pass)){
+	echo "Erro ao conectar ao BANCO DE DADOS";
+	exit();
+}
+
+$stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
+odbc_execute($stmt, array($user, $pass));
+$usuario = odbc_fetch_array($stmt);
+
+
+if ($usuario) {
+   $_SESSION['user'] = $user;
+   header('Location: ../view/');
+} else {
+    header('Location: /projetointregador/');
+}
