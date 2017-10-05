@@ -7,15 +7,15 @@ if (isset( $_REQUEST['user']) && isset($_REQUEST['password'])) {
     $pass = $_REQUEST['password'];
     
     
-    $db_host = "senacprojeto.database.windows.net";
-    $db_name = "PI2";
-    $db_user = "senacii";
-    $db_pass = "Senac2017";
+    $db_host = "mybanksenac.database.windows.net";
+    $db_name = "mybank";
+    $db_user = "joaosenac2017";
+    $db_pass = "02Jesuina";
     $dsn = "Driver={SQL Server};Server=$db_host;Port=1433;Database=$db_name;";
     
-    if( !$db = odbc_connect($dsn, $db_user, $db_pass)){
+    if ( !$db = odbc_connect($dsn, $db_user, $db_pass)) {
         echo "Erro ao conectar ao BANCO DE DADOS";
-        exit();
+        die();
     }
     
     $stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
@@ -26,9 +26,6 @@ if (isset( $_REQUEST['user']) && isset($_REQUEST['password'])) {
        $_SESSION['user'] = $user;
        header('Location: ./view/');
     } else {
-        $msg = 'true';
+        $msg = 'Login ou senha inválidos!';
     }
-    
-} else {
-    echo '';
 }

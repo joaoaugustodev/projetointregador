@@ -40,11 +40,11 @@
                                 <form class="col s12" method="post" action="/projetointregador/">
                                     <div class="row">
                                     <div class="input-field col s10 offset-s1">
-                                        <input id="login_input" type="text" name="user" class="validate black-text text-darken-1">
+                                        <input id="login_input" type="text" required name="user" class="validate black-text text-darken-1">
                                         <label for="login_input">Login</label>
                                     </div>
                                     <div class="input-field col s10 offset-s1">
-                                        <input id="pass" type="password" name="password" class="validate orange-text">
+                                        <input id="pass" type="password" required name="password" class="validate orange-text">
                                         <label for="pass">Senha</label>
                                     </div>
                                     </div>
@@ -56,10 +56,9 @@
                             </div>                
                         </div>
                         <div class="center">
-                        <?php 
-                            if (isset($msg)) { ?>
-                                <p class="red white-text" style="font-family: sans-serif;">Login ou senha inválidos!</p>
-                           <?php } ?>
+                          <?php if (isset($msg)) { ?>
+                              <p class="red white-text" style="font-family: sans-serif;"><?= $msg ?></p>
+                          <?php } ?>
                         </div>
                     </div>
                     </div>
