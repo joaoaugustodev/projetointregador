@@ -11,6 +11,7 @@
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="./public/css/estilo.css">
+      <link rel="icon" href="./public/images/logo.png">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
@@ -61,8 +62,6 @@
             </div>
         </article>
     </section>
-
-
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="./public/javascript/jquery-3.2.1.min.js"></script>
   <script src="./public/javascript/materialize.min.js"></script>

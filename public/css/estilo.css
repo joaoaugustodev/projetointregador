@@ -18,6 +18,7 @@
     border-radius: 35px;
     transition: width .5s;
     opacity: 1 !important;
+    margin-right: 0 !important;
 }
 /* botão de login */
 .btn:hover{
@@ -52,3 +53,8 @@
   #pass:focus + label {
     color: #8A9DAE;
   }
+
+.logout {line-height: 50px;}
+.sample-admin {height: 40px; line-height: 40px;}
+.button-editar {margin-top: 0 !important;}
+.list-clients {margin: 65px 0 30px 0;}
