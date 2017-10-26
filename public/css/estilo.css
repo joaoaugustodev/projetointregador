@@ -64,3 +64,5 @@
 .users {border-left: 3px solid #3bda5d;}
 .space__disk {font-size: 70px;}
 .space__disk sub {font-size: 15px;}
+.nowrap {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100px;}
+.wrap-overflow {height: 290px; overflow: auto;}

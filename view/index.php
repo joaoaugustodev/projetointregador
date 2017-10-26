@@ -46,11 +46,11 @@
         <div class="col s12 sample-admin">
 
             <div class="col s4 space hd">
-              <span class="grey-text">ESPAÇO EM DISCO</span>
+              <span class="grey-text">ESPAÇO LIVRE EM DISCO</span>
               <div class="space__disk grey-text">
                 <?php
-                  $space = ('c:') ? 'c:' : '/dev/sda1';
-                  echo substr(disk_free_space($space) / 1024 / 1024 / 1024, 0, 3).'<sub>GB</sub>';
+                  $space = disk_free_space('/dev/sda1') ? disk_free_space('/dev/sda1') : disk_free_space('c:');
+                  echo substr($space / 1024 / 1024 / 1024, 0, 3).'<sub>GB</sub>';
                 ?>
               </div>
             </div>
@@ -112,37 +112,73 @@
                 <br>
                 <button class="btn button-editar">Editar</button>
             </div>
-            <div class="col s12">
-                <h4 class="center list-clients">LISTA DE CLIENTES</h4>
+            <div class="col s6">
+              <h5 class="center list-clients">LISTA DE CLIENTES</h5>
 
-                <table class="striped responsive-table">
-                    <thead>
-                      <tr>
-                          <th>ID</th>
-                          <th>NOME</th>
-                          <th>Email</th>
-                          <th>EDITAR</th>
-                          <th>DELETAR</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-
-                        <?php 
-                            $result = odbc_exec($db, 'SELECT idCliente, nomeCompletocliente, emailCliente FROM Cliente');
-                            while ($clients = odbc_fetch_array($result)) { 
-                        ?>
-                         <tr>
-                            <td><?= $clients['idCliente'] ?></td>
-                            <td><?= $clients['nomeCompletocliente'] ?></td>
-                            <td><?= $clients['emailCliente'] ?></td>
-                            <th><a href="?editar=<?= $clients['idCliente'] ?>"><i class="material-icons">create</i></a></th>
-                            <th><a href="?excluir=<?= $clients['idCliente'] ?>"><i class="material-icons">delete_forever</i></a></th>
+              <div class="wrap-overflow">
+                  <table class="centered striped responsive-table">
+                      <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NOME</th>
+                            <th>Email</th>
+                            <th>EDITAR</th>
+                            <th>DELETAR</th>
                         </tr>
+                      </thead>
 
-                        <? }?>
-                    </tbody>
-                </table>
+                      <tbody>
+
+                          <?php 
+                              $result = odbc_exec($db, 'SELECT idCliente, nomeCompletocliente, emailCliente FROM Cliente');
+                              while ($clients = odbc_fetch_array($result)) { 
+                          ?>
+                           <tr>
+                              <td><?= $clients['idCliente'] ?></td>
+                              <td><?= $clients['nomeCompletocliente'] ?></td>
+                              <td><?= $clients['emailCliente'] ?></td>
+                              <th><a href="?editar=<?= $clients['idCliente'] ?>"><i class="material-icons">create</i></a></th>
+                              <th><a href="?excluir=<?= $clients['idCliente'] ?>"><i class="material-icons">delete_forever</i></a></th>
+                          </tr>
+
+                          <? }?>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+
+            <div class="col s6">
+                <h5 class="center list-clients">LISTA DE PRODUTOS</h5>
+
+                <div class="wrap-overflow">
+                    <table class="centered striped responsive-table">
+                        <thead>
+                          <tr>
+                              <th>ID</th>
+                              <th>NOME</th>
+                              <th>DESCRIÇÃO</th>
+                              <th>EDITAR</th>
+                              <th>DELETAR</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                            <?php 
+                                $result = odbc_exec($db, 'SELECT idProduto, nomeProduto, descProduto FROM Produto');
+                                while ($products = odbc_fetch_array($result)) { 
+                            ?>
+                            <tr>
+                                <td><?= utf8_encode($products['idProduto']) ?></td>
+                                <td><div class="nowrap"><?= utf8_encode($products['nomeProduto']) ?></div></td>
+                                <td><div class="nowrap"><?= utf8_encode($products['descProduto']) ?></div></td>
+                                <th><a href="?editar=<?= $products['idProduto'] ?>"><i class="material-icons">create</i></a></th>
+                                <th><a href="?excluir=<?= $products['idProduto'] ?>"><i class="material-icons">delete_forever</i></a></th>
+                            </tr>
+
+                            <? }?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
