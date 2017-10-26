@@ -42,10 +42,35 @@
       </nav>
     </div>
     <br>
-
     <div class="container">
-        <div class="col s10 sample-admin">
-            <span class="grey-text right">Logado como: <?= $_SESSION['user'] ?></span>
+        <div class="col s12 sample-admin">
+
+            <div class="col s4 space hd">
+              <span class="grey-text">ESPAÇO EM DISCO</span>
+              <div class="space__disk grey-text">
+                <?php
+                  $space = ('c:') ? 'c:' : '/dev/sda1';
+                  echo substr(disk_free_space($space) / 1024 / 1024 / 1024, 0, 3).'<sub>GB</sub>';
+                ?>
+              </div>
+            </div>
+
+            <div class="col s4 space memory">
+              <span class="grey-text">MEMORIA EM USO</span>
+              <div class="space__disk grey-text">
+                <?php
+                  $space = ('c:') ? 'c:' : '/dev/sda1';
+                  echo substr(memory_get_usage() / 1024, 0, 3).'<sub>KB</sub>';
+                ?>
+              </div>
+            </div>
+            
+            <div class="col s4 space users">
+              <span class="grey-text">LOGADO COMO</span>
+              <div class="space__disk grey-text">
+                <?= strtoupper($_SESSION['user']); ?>
+              </div>
+            </div>
         </div>
 
         <br>   
@@ -88,7 +113,7 @@
                 <button class="btn button-editar">Editar</button>
             </div>
             <div class="col s12">
-               <h4 class="center list-clients">LISTA DE CLIENTES</h4>
+                <h4 class="center list-clients">LISTA DE CLIENTES</h4>
 
                 <table class="striped responsive-table">
                     <thead>
@@ -111,8 +136,8 @@
                             <td><?= $clients['idCliente'] ?></td>
                             <td><?= $clients['nomeCompletocliente'] ?></td>
                             <td><?= $clients['emailCliente'] ?></td>
-                            <th><a href="#"><i class="material-icons">create</i></a></th>
-                            <th><a href="#"><i class="material-icons">delete_forever</i></a></th>
+                            <th><a href="?editar=<?= $clients['idCliente'] ?>"><i class="material-icons">create</i></a></th>
+                            <th><a href="?excluir=<?= $clients['idCliente'] ?>"><i class="material-icons">delete_forever</i></a></th>
                         </tr>
 
                         <? }?>
@@ -121,7 +146,7 @@
             </div>
         </div>
     </div>
-   
+
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="../public/javascript/jquery-3.2.1.min.js"></script>
   <script src="../public/javascript/materialize.min.js"></script>
