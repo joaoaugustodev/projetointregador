@@ -37,41 +37,8 @@
         <br>   
 
         <div class="row">
-            <div class="col s6">
-                <table class="striped responsive-table">
-                    <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Item Name</th>
-                          <th>Item Price</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                      </tr>
-                      <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>$3.76</td>
-                      </tr>
-                      <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                      </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col s6">
-                <h4>LISTA DE PEDIDOS</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, sit, odit assumenda voluptates doloremque accusantium nam, architecto rerum minima autem ex quae iure deleniti cupiditate hic soluta explicabo laudantium alias?</p>
-                <br>
-                <button class="btn button-editar">Editar</button>
+            <div class="col s12">
+               <canvas id="graficoPedidos"></canvas>
             </div>
           </div>
     </div>
@@ -79,8 +46,8 @@
 	
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-		<div class="col s6">
+		<div class="col s12">
+		<div class="col s12 m6">
 		  <h5 class="center list-clients">LISTA DE CLIENTES</h5>
 
 		  <div class="wrap-overflow">
@@ -116,7 +83,7 @@
 		  </div>
 		</div>
 
-		<div class="col s6">
+		<div class="col s12 m6">
 			<h5 class="center list-clients">LISTA DE PRODUTOS</h5>
 			<div class="wrap-overflow">
 				<table class="centered striped responsive-table">
@@ -154,6 +121,8 @@
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="../public/javascript/jquery-3.2.1.min.js"></script>
   <script src="../public/javascript/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
   <script src="../public/javascript/init.js"></script>
+  <script src="../public/javascript/grafico.js"></script>
 </body>
 </html>
