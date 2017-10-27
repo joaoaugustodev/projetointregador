@@ -55,10 +55,11 @@
   }
 
 .logout {line-height: 50px;}
-.sample-admin {height: auto; line-height: 40px; display: flex; justify-content: center; overflow-x: auto;}
+.sample-admin {height: auto; line-height: 40px; overflow-x: auto;}
+.overflow {display: flex;  width: 940px;}
 .button-editar {margin-top: 0 !important;}
 .list-clients {margin: 65px 0 30px 0;}
-.space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0; width: 300px;}
+.space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0; width: 360px;}
 .hd {border-left: 3px solid #da3b3b;}
 .memory {border-left: 3px solid #3b9fda;}
 .users {border-left: 3px solid #3bda5d;}
