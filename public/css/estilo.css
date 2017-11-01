@@ -20,10 +20,11 @@
     opacity: 1 !important;
     margin-right: 0 !important;
 }
+.btn.submit {margin: 0;}
 /* botão de login */
 .btn:hover{
     width: 265px;
-    background-color: #ff3366; 
+    background-color: #ff3366;
     color: white;
     opacity: 2 !important;
 }
@@ -32,14 +33,14 @@
     border-top-right-radius: 5px;
     background-color: rgba(10, 24, 55, 0);
 }
-#img1{ 
+#img1{
     position: fixed;
 }
 #login_input:focus {
     border-bottom: 1px solid #8A9DAE;
     box-shadow: 0 1px 0 0 #8A9DAE;
   }
-  
+
   #login_input:focus + label {
     color: #8A9DAE;
   }
@@ -49,13 +50,14 @@
     border-bottom: 1px solid #8A9DAE;
     box-shadow: 0 1px 0 0 #8A9DAE;
   }
-  
+
   #pass:focus + label {
     color: #8A9DAE;
   }
 
 .logout {line-height: 50px;}
-.sample-admin {height: auto; line-height: 40px; display: flex; justify-content: center; overflow-x: auto;}
+.sample-admin {height: auto; line-height: 40px; overflow-x: auto;}
+.overflow {display: flex;  width: 940px;}
 .button-editar {margin-top: 0 !important;}
 .list-clients {margin: 65px 0 30px 0;}
 .space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0; width: 360px;}
@@ -66,3 +68,4 @@
 .space__disk sub {font-size: 15px;}
 .nowrap {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100px;}
 .wrap-overflow {height: 290px; overflow: auto;}
+.message {padding: 20px !important; margin-bottom: 20px !important;}
