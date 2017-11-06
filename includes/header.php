@@ -10,6 +10,7 @@
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="../public/css/estilo.css">
+      <link rel="stylesheet" href="../public/css/estiloadmin.css">
       <link rel="icon" href="../public/images/logo.png">
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
@@ -25,7 +26,7 @@
               <li><a class="black-text" href="#">Produtos</a></li>
               <li><a class="black-text" href="#">Usuarios</a></li>
               <li><a class="black-text" href="#">Pedidos</a></li>
-              <li><a class="logout z-depth-0 white-text btn" href="../db/logout.php">Logout</a></li>
+              <li><a class="logout z-depth-0 white-text btn btn-admin" href="../db/logout.php">Logout</a></li>
             </ul>
           </div>
       </nav>

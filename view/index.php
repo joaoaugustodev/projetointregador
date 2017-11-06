@@ -36,7 +36,7 @@
 
         <br>
 
-        <div class="row">
+        <div class="row white">
             <div class="col s12">
                <canvas id="graficoPedidos"></canvas>
             </div>
@@ -46,7 +46,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col s12">
+		<div class="col s12 white">
 		<div class="col s12 m6">
 		  <h5 class="center list-clients">LISTA DE CLIENTES</h5>
 
