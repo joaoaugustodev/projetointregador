@@ -36,8 +36,8 @@
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="HOME" href="./"><i class="large material-icons">home</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PRODUTOS" href="#"><i class="large material-icons">add_shopping_cart</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PEDIDOS" href="#"><i class="large material-icons">assignment_late</i></a></li>
-          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="USUARIOS" href="#"><i class="large material-icons">assignment_ind</i></a></li>
-          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGARAÇÕES" href="#"><i class="large material-icons">settings_applications</i></a></li>
+          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="USUARIOS" href="./usuarios.php"><i class="large material-icons">assignment_ind</i></a></li>
+          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGURAÇÕES" href="#"><i class="large material-icons">settings_applications</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="SAIR" href="../db/logout.php"><i class="large material-icons">open_in_new</i></a></li>
         </ul>
       </nav>

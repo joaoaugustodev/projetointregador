@@ -127,10 +127,12 @@
 <script>
 	// Antes do carreganmento final da pagina fazemos um load indicando o carregamento
 	window.addEventListener('load', function () {
+		document.querySelector('.loadinPage').remove()
 		document.querySelectorAll('.unload').forEach(function (unload) {
 			unload.classList.remove('unload')
-			document.querySelector('.loadinPage').remove()
 		})
 	})
 </script>
 <?php include_once('../includes/footer.php') ?>
+<script src="../public/javascript/grafico.js"></script>
+

@@ -9,7 +9,7 @@ body {background: #f7f7f7;}
 .hd {border-left: 3px solid #da3b3b; background: #fff; flex: 1;}
 .memory {border-left: 3px solid #3b9fda; background: #fff; flex: 1;}
 .users {border-left: 3px solid #3bda5d; background: #fff; flex: 1;}
-.space__disk {font-size: 70px;}
+.space__disk {font-size: 50px;}
 .space__disk sub {font-size: 15px;}
 
 .nowrap {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100px;}
