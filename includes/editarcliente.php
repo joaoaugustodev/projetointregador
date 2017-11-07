@@ -1,7 +1,6 @@
 <?php 
 
   if (isset($_POST['editar'])) {
-    echo 'oi';
     $id = $_GET['editarClient'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -28,7 +27,9 @@
   $value = odbc_fetch_array($query);
 ?>
 <?php include_once('../includes/message.php'); ?>
-<div class="row">
+
+<div class="container">
+  <div class="row">
    <form class="col s12" method="post" action="">
      <input type="hidden" name="idcliente" value="<?= $value['idCliente'] ?>">
      <div class="row">
@@ -71,3 +72,4 @@
      </div>
    </form>
  </div>
+</div>
