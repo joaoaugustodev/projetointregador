@@ -1,7 +1,6 @@
 <?php 
 
   if (isset($_POST['editar'])) {
-    echo 'oi';
     $id = $_GET['editarClient'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];

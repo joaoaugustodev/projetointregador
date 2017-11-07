@@ -1,19 +1,29 @@
-<?php 
+<?php
+  ini_set('odbc.defaultlrl', 90000000);
+
   if (isset($_POST['produtobtn'])) {
     try {
       $id = $_POST['editarprod'];
       $nome = $_POST['nome'];
-      $descProduto = utf8_encode($_POST['descProduto']);
+      $descProduto = $_POST['descProd'];
       $precProduto = $_POST['precProduto'];
       $descontoPromocao = $_POST['descontoPromocao'];
       $ativoProduto = $_POST['ativoProduto'];
       $qtdMinEstoque = $_POST['qtdMinEstoque'];
-      $imagem = $_FILES['imagem'];
-      $imageBin = file_get_contents($imagem['tmp_name']);
+      $arquivo = $_FILES['imagem']['tmp_name'];
+      $imagem = @fopen($arquivo, "r");
+      $conteudo = @fread($imagem, filesize($arquivo));
 
-      $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ?, imagem= ? WHERE idProduto=$id");
+      if (empty($arquivo)) {
+        $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ? WHERE idProduto=$id");
+      } else {
 
-      if(odbc_execute($stmt, array($nome, $descProduto, $precProduto, $descontoPromocao, $ativoProduto, $qtdMinEstoque, $imageBin))){
+        $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ?, imagem= ? WHERE idProduto=$id");
+      }
+      
+
+
+      if(odbc_execute($stmt, array($nome, $descProduto, $precProduto, $descontoPromocao, $ativoProduto, $qtdMinEstoque, $conteudo))){
         $msg = 'Produto atualizado com sucesso!';
       }else{
         $msg = 'Erro ao atualizar o produto';
@@ -26,6 +36,7 @@
   $id = $_GET['editarproduto'];
   $query = odbc_exec($db, "SELECT * FROM Produto WHERE idProduto=$id");
   $value = odbc_fetch_array($query);
+  $desc = utf8_decode($value['descProduto']);
 
   $image =  base64_encode($value['imagem']);
 ?>
@@ -38,12 +49,12 @@
     <div class="row">
 
       <div class="input-field col s6">
-        <input placeholder="Placeholder" name="nome" id="first_name" type="text" class="validate" value="<?= utf8_decode($value['nomeProduto']) ?>">
+        <input placeholder="Placeholder" name="nome" id="first_name" type="text" class="validate" value="<?= $value['nomeProduto'] ?>">
         <label for="first_name">Nome</label>
       </div>
 
       <div class="input-field col s6">
-      <input id="email" type="text" class="validate" name="descProduto" value="<?= utf8_decode($value['descProduto']) ?>">
+      <input id="email" type="text" class="validate" name="descProd" value="<?= $desc ?>">
         <label for="last_name">Descrição</label>
       </div>
 

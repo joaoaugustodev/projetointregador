@@ -1,16 +1,20 @@
 body {background: #f7f7f7;}
 .logout {line-height: 50px;}
 .sample-admin {height: auto; line-height: 40px; overflow-x: auto;}
-.overflow {display: flex;  width: 940px;}
+.overflow {display: flex; }
 .button-editar {margin-top: 0 !important;}
 .list-clients {margin: 65px 0 30px 0;}
-.space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0; width: 360px;}
-.hd {border-left: 3px solid #da3b3b; background: #fff;}
-.memory {border-left: 3px solid #3b9fda; background: #fff;}
-.users {border-left: 3px solid #3bda5d; background: #fff;}
+.space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0;}
+.hd {border-left: 3px solid #da3b3b; background: #fff; flex: 1;}
+.memory {border-left: 3px solid #3b9fda; background: #fff; flex: 1;}
+.users {border-left: 3px solid #3bda5d; background: #fff; flex: 1;}
 .space__disk {font-size: 70px;}
 .space__disk sub {font-size: 15px;}
 .nowrap {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100px;}
 .wrap-overflow {height: 290px; overflow: auto;}
 .message {padding: 20px !important; margin-bottom: 20px !important;}
 .btn-admin {background: #c7d2d2 !important; border: none;}
+
+@media (max-width: 480px) {
+	.overflow {width: 940px;}
+}
