@@ -2,7 +2,7 @@
   if (isset($_POST['produtobtn'])) {
     try {
       $id = $_POST['editarprod'];
-      $nome = $_POST['nome'];
+      $nome = utf8_encode($_POST['nome']);
       $descProduto = utf8_encode($_POST['descProduto']);
       $precProduto = $_POST['precProduto'];
       $descontoPromocao = $_POST['descontoPromocao'];
