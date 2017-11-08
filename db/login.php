@@ -10,14 +10,16 @@ if (isset( $_REQUEST['user']) && isset($_REQUEST['password'])) {
     $pass = $_REQUEST['password'];
 
 
-    $stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
+    $stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
     odbc_execute($stmt, array($user, $pass));
     $usuario = odbc_fetch_array($stmt);
     
-    if ($usuario) {
+    if ($usuario && $usuario['usuarioAtivo'] == '1') {
        $_SESSION['user'] = $user;
+       $_SESSION['nivel'] = $usuario['tipoPerfil'];
+       $_SESSION['id'] = $usuario['idUsuario'];
        header('Location: ./view/');
     } else {
-        $msg = 'Login ou senha inválidos!';
+        $msg = 'Login / senha inválidos ou usuario inativo!';
     }
 }

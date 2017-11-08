@@ -33,7 +33,7 @@
                                 <form class="col s12" method="post" action="/projetointregador/">
                                     <?php
                                         if(isset($msg)){
-                                            echo "<b class='red-text text-lighten-3' style='margin-left: 25%;'>$msg<b><br>";
+                                            echo "<b class='texto-de-erro red-text text-lighten-3'>$msg<b><br>";
                                         }
         
                                     ?>
