@@ -1,5 +1,4 @@
 <?php 
-
   if (isset($_POST['editar'])) {
     $id = $_POST['editarClient'];
     $nome = $_POST['nome'];
@@ -16,9 +15,9 @@
                           telResidencialCliente= ?, dtNascCliente= ? WHERE idCliente=$id");
 
     if(odbc_execute($stmt, array($nome, $email, $senha, $cpf, $telefone, $telefoneresidencial, $telefonecomercial, $data))){
-      $msg = 'Categoria atualizada com sucesso!';
+      $msg = 'Cliente atualizado com sucesso!';
     }else{
-      $msg = 'Erro ao atualizar a categoria';
+      $msg = 'Erro ao atualizar a cliente';
     }
   }
 
@@ -29,6 +28,7 @@
 <?php include_once('../includes/message.php'); ?>
 
 <div class="container">
+  <div class="row">
    <form class="col s12 card-panel" method="post" action="">
      <input type="hidden" name="idcliente" value="<?= $value['idCliente'] ?>">
      <div class="row">
