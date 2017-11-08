@@ -16,6 +16,7 @@
 .btn{
     width: 150px;
     height: 50px;
+    font-weight: 200;
     margin-top: 20px;
 	margin-left:43%;
     background-color: #ff3366;
@@ -46,6 +47,8 @@
 }
 #img1{
     position: fixed;
+	width: 100%;
+    height: 100%;
 }
 #login_input:focus {
     border-bottom: 1px solid #8A9DAE;
