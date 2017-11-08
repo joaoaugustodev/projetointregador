@@ -33,7 +33,7 @@
 	<?php include_once('../includes/message.php'); ?>
 
 	<div class="row">
-		<div class="col s12 <?= ($_SESSION['nivel'] == 'A') ? 'm6' : 'm12' ?>">
+		<div class="col s12 <?= ($_SESSION['nivel'] == 'A') ? 'm12' : '' ?> card-panel">
 			<h5 class="center">Listagem de Usuarios</h5>
 				
 			<br>
@@ -84,11 +84,10 @@
 		</div>
 		
 		<?php if ($_SESSION['nivel'] == 'A'): ?>
-			<h5 class="center">Cadastrar</h5>
-
 			<br>
 
-			<div class="col s12 m6">
+			<div class="col s12 m12 card-panel">
+			<h5 class="center">Cadastrar</h5>
 			  <div class="row">
 			    <form class="col s12" method="post">
 			      <div class="row">
@@ -118,8 +117,8 @@
 			        </div>
 			        <div class="input-field col s12 m6">
 			          <select name="ativo" class="validate">
-			            <option value="true" select>Ativo</option>
-			            <option value="false">Desativo</option>
+			            <option value="1" select>Ativo</option>
+			            <option value="0">Desativo</option>
 			          </select>
 			          <label for="userActive">Usuario Ativo</label>
 			        </div>

@@ -52,8 +52,8 @@
 
 	<div class="container unload">
 		<div class="row">
-			<div class="col s12 white">
-			<div class="col s12 m6">
+			<div class="col s12 ">
+			<div class="col s12 m12 card-panel">
 			  <h5 class="center list-clients">LISTA DE CLIENTES</h5>
 
 			  <div class="wrap-overflow">
@@ -88,8 +88,7 @@
 				  </table>
 			  </div>
 			</div>
-
-			<div class="col s12 m6">
+			<div class="col s12 m12 card-panel">
 				<h5 class="center list-clients">LISTA DE PRODUTOS</h5>
 				<div class="wrap-overflow">
 					<table class="centered striped responsive-table">

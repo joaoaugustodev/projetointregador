@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="navbar-fixed">
-      <nav class="white z-depth-0">
+      <nav class="white z-depth-1">
           <div class="nav-wrapper container">
             <a href="./" class="branch">
               <img src="../public/images/logo.png" alt="logotipo" width="60">
@@ -37,7 +37,7 @@
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PRODUTOS" href="#"><i class="large material-icons">add_shopping_cart</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PEDIDOS" href="#"><i class="large material-icons">assignment_late</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="USUARIOS" href="./usuarios.php"><i class="large material-icons">assignment_ind</i></a></li>
-          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGURAÇÕES" href="#"><i class="large material-icons">settings_applications</i></a></li>
+          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGURAÇÕES" href="./configuracao.php?user=<?= $_SESSION['id'] ?>"><i class="large material-icons">settings_applications</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="SAIR" href="../db/logout.php"><i class="large material-icons">open_in_new</i></a></li>
         </ul>
       </nav>

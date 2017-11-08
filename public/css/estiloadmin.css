@@ -1,5 +1,6 @@
 body {background: #f7f7f7;}
 .logout {line-height: 50px;}
+.bold {font-weight: bold !important;}
 
 .sample-admin {height: auto; line-height: 40px; overflow-x: auto;}
 .overflow {display: flex; justify-content: center;}
@@ -30,6 +31,14 @@ animation: loading .3s linear infinite;}
 .menuLateral__nav {background: transparent !important; box-shadow: none !important;}
 .menuLateral__nav ul li:last-child {position: absolute; bottom: 10px;}
 
+.profile {height: 80vh !important;}
+.profile__row {height: 100%;}
+.profile__content {height: 100%;}
+.profile__bgProfile {display: inline-block;background-image: url(../images/profile.png); width: 200px; height: 200px; border-radius: 50%; background-repeat: no-repeat; background-size: cover; }
+.profile__desc {display: flex; justify-content: center; flex-wrap: wrap;}
+.profile__desc > div {padding: 20px;}
+.profile__atention {padding: 20px !important; position: relative; margin: 10px 0; font-size: 14px; transition: all .2s;}
+.profile__atention > .close {position: absolute; font-size: 18px; right: 10px; top: 16px; cursor: pointer;}
 
 @media (max-width: 480px) {
 	.overflow {width: 940px;}

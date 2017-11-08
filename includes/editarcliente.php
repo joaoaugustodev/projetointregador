@@ -1,7 +1,7 @@
 <?php 
 
   if (isset($_POST['editar'])) {
-    $id = $_GET['editarClient'];
+    $id = $_POST['editarClient'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -29,8 +29,7 @@
 <?php include_once('../includes/message.php'); ?>
 
 <div class="container">
-  <div class="row">
-   <form class="col s12" method="post" action="">
+   <form class="col s12 card-panel" method="post" action="">
      <input type="hidden" name="idcliente" value="<?= $value['idCliente'] ?>">
      <div class="row">
        <div class="input-field col s6">
