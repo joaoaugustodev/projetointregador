@@ -1,81 +1,25 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+
 include_once('../includes/header.php');
 include_once('../db/verifysession.php');
 
-$id = $_GET['editarClient'];
-$query = odbc_exec($db, "SELECT * FROM Cliente WHERE idCliente=$id");
-$value = odbc_fetch_array($query);
+$paramsValue = array('editarClient', 'editarproduto', 'editarUser');
 
-if (isset($_POST['editar'])) {
-  $id = $_GET['editarClient'];
-  $nome = $_POST['nome'];
-  $email = $_POST['email'];
-  $senha = $_POST['senha'];
-  $cpf = $_POST['cpf'];
-  $telefone = $_POST['telefone'];
-  $telefoneresidencial = $_POST['telefoneresidencial'];
-  $telefonecomercial = $_POST['telefoneresidencial'];
-  $data = $_POST['data'];
 
-  $stmt = odbc_prepare($db, "UPDATE Cliente SET nomeCompletoCliente= ?, emailCliente= ?, senhaCliente= ?,
-                        CPFCliente= ?, celularCliente= ?, telComercialCliente= ?,
-                        telResidencialCliente= ?, dtNascCliente= ? WHERE idCliente=$id");
-
-  if(odbc_execute($stmt, array($nome, $email, $senha, $cpf, $telefone, $telefoneresidencial, $telefonecomercial, $data))){
-    $msg = 'Categoria atualizada com sucesso!';
-  }else{
-    $msg = 'Erro ao atualizar o categoria';
-  }
+if (in_array('editarClient', $paramsValue) && isset($_GET['editarClient'])) {
+  include_once('../includes/editarcliente.php');
 }
+
+if (in_array('editarproduto', $paramsValue) &&  isset($_GET['editarproduto'])) {
+  include_once('../includes/editarproduto.php');
+}
+
+if (in_array('editarUser', $paramsValue) &&  isset($_GET['editarUser'])) {
+  include_once('../includes/editarusuario.php');
+}
+
 ?>
-<?php if (isset($msg)): ?>
-  <div class="teal lighten-2 container message">
-      <span class="white-text center"><?php echo $msg;?></span>
-      <a href="./">Voltar</a>
-  </div>
-<?php endif; ?>
 
-<div class="row">
-   <form class="col s12" method="post" action="">
-     <input type="hidden" name="idcliente" value="<?= $value['idCliente'] ?>">
-     <div class="row">
-       <div class="input-field col s6">
-         <input placeholder="Placeholder" name="nome" id="first_name" type="text" class="validate" value="<?= $value['nomeCompletoCliente'] ?>">
-         <label for="first_name">Nome</label>
-       </div>
-       <div class="input-field col s6">
-         <input id="email" type="email" class="validate" name="email" value="<?= $value['emailCliente'] ?>">
-         <label for="last_name">Email</label>
-       </div>
-       <div class="input-field col s6">
-         <input name="senha" type="text" class="validate" value="<?= $value['senhaCliente'] ?>">
-         <label for="disabled">Senha</label>
-       </div>
-       <div class="input-field col s12 m6">
-         <input id="cpf" type="text" name="cpf" class="validate" value="<?= $value['CPFCliente'] ?>">
-         <label for="cpf">CPF</label>
-       </div>
-       <div class="input-field col s12 m6">
-         <input id="phone" type="text" name="telefone" class="validate" value="<?= $value['celularCliente'] ?>">
-         <label for="phone">Telefone Celular</label>
-     </div>
-       <div class="input-field col s12 m6">
-         <input id="phone" type="text" name="telefoneresidencial" class="validate" value="<?= $value['telComercialCliente'] ?>">
-         <label for="phone">Telefone Comercial</label>
-       </div>
-       <div class="input-field col s12 m6">
-         <input id="phone" type="text" name="telefoneResidencial" class="validate" value="<?= $value['telResidencialCliente'] ?>">
-         <label for="phone">Telefone Residencial</label>
-       </div>
-       <div class="input-field col s12 m6">
-         <input id="data" type="text" name="data" class="validate" value="<?= $value['dtNascCliente'] ?>">
-         <label for="data">Data de nascimento</label>
-       </div>
 
-       <div class="col s12">
-         <button class="btn submit waves-effect waves-light btn" name="editar">Editar</button>
-       </div>
-     </div>
-   </form>
- </div>
- <?php include_once('../includes/footer.php') ?>
+<?php include_once('../includes/footer.php') ?>

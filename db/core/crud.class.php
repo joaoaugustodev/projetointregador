@@ -11,7 +11,7 @@ class Crud extends PDO {
 		$this->pass = $pass;
 
 		try {
-			parent::__construct("sqlsrv:host=$this->host;dbname=$this->db", "$this->user", "$this->pass");
+			parent::__construct("sqlserver:host=$this->host;dbname=$this->db", "$this->user", "$this->pass");
 		} catch (PDOException $e) {
 			echo "Ocoreu um erro ao estabelecer conexão com banco de dados ".$e->getMessage();
 		}

@@ -1,0 +1,36 @@
+body {background: #f7f7f7;}
+.logout {line-height: 50px;}
+
+.sample-admin {height: auto; line-height: 40px; overflow-x: auto;}
+.overflow {display: flex; justify-content: center;}
+.button-editar {margin-top: 0 !important;}
+.list-clients {margin: 65px 0 30px 0;}
+.space {padding: 0px 20px 20px; box-sizing: border-box; border: 1px solid #ccc; margin: 10px 10px 10px 0;}
+.hd {border-left: 3px solid #da3b3b; background: #fff; flex: 1;}
+.memory {border-left: 3px solid #3b9fda; background: #fff; flex: 1;}
+.users {border-left: 3px solid #3bda5d; background: #fff; flex: 1;}
+.space__disk {font-size: 50px;}
+.space__disk sub {font-size: 15px;}
+
+.nowrap {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;max-width: 100px;}
+.wrap-overflow {height: 290px; overflow: auto;}
+.message {padding: 20px !important; margin-bottom: 20px !important;}
+.btn-admin {background: #c7d2d2 !important; border: none;}
+.desc-dashboard {margin-bottom: 20px;}
+
+.unload {display: none;}
+.loadinPage {width: 30px; height: 30px; border: 3px solid transparent; position: absolute; left: 50%; top: 50%; transform: tranlate(-50%, -50%); border-radius: 50%;}
+.loadinPage:before {content: ''; width: 30px; height: 30px; border-top: 2px solid #262d2e; border-bottom: 2px solid #262d2e; position: absolute; 
+left: 50%; top: 50%; transform: tranlate(-50%, -50%); border-radius: 50%; 
+animation: loading .3s linear infinite;}
+@keyframes loading {from {transform: rotateZ(0deg)}to {transform: rotateZ(360deg)}}
+
+
+.menuLateral {width: 60px;height: 100vh; top: 0; background: #262d2e; position: fixed; z-index: 9999;}
+.menuLateral__nav {background: transparent !important; box-shadow: none !important;}
+.menuLateral__nav ul li:last-child {position: absolute; bottom: 10px;}
+
+
+@media (max-width: 480px) {
+	.overflow {width: 940px;}
+}
