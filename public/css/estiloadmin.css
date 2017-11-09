@@ -40,9 +40,19 @@ animation: loading .3s linear infinite;}
 .profile__atention {padding: 20px !important; position: relative; margin: 10px 0; font-size: 14px; transition: all .2s;}
 .profile__atention > .close {position: absolute; font-size: 18px; right: 10px; top: 16px; cursor: pointer;}
 
+.newProduto {padding: 20px !important;}
+
 .father {display: flex; flex-wrap: wrap;}
 .cards-produto__card {height: auto; margin-bottom: 40px;}
 .cards-produto__cardchild {height: 100%;}
+.cards-produto__carddesc {height: 150px; overflow-y: auto;}
+.title {text-overflow: ellipsis; overflow:hidden; white-space: nowrap;}
+.valorProd {color: #ccc; display: block; text-decoration: line-through;}
+.cardPrice {margin-bottom: 20px;}
+
+.modalizar {padding: 30px !important;}
+.cadastraProduto {position: relative;}
+.btn .cadastra {position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
 
 @media (max-width: 480px) {
 	.overflow {width: 940px;}
