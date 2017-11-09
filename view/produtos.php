@@ -171,9 +171,10 @@
 
         <div class="input-field col s12 m6">
           <img src="" alt="" id="upimage" width="300" height="auto">
+          <p class="msg bold"></p>
         </div>
 
-        <button class="btn cadastra" name="produtobtn">Cadastrar</button>
+        <button class="btn cadastra center" name="produtobtn">Cadastrar</button>
       </div>
     </form>
   </div>
@@ -190,14 +191,29 @@
 
   window['img'].addEventListener('change', function (e) {
     const reader = new FileReader()
+    const button = document.querySelector('.cadastra')
+    const message = document.querySelector('.msg')
 
-    reader.onload = function(){
-      var dataURL = reader.result
-      var output = window['upimage']
-      output.src = dataURL
+    if (e.target.files[0].size / 1024 > 300) {
+
+      button.disabled = true
+      message.innerHTML = 'Imagem deve ter menos que 300KB'
+      message.classList.add('red-text')
+      window['upimage'].src = ''
+
+    } else {
+      reader.onload = function(){
+        var dataURL = reader.result
+        button.disabled = false
+        message.innerHTML = ''
+        message.classList.remove('red-text')
+        var output = window['upimage']
+        output.src = dataURL
+      }
+
+      reader.readAsDataURL(e.target.files[0])
     }
 
-    reader.readAsDataURL(e.target.files[0])
   })
 </script>
 
