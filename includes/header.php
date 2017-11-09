@@ -4,7 +4,7 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>GStore - ADMIN</title>
+      <title>Gandalf - ADMIN</title>
 
       <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="../public/css/materialize.min.css">
@@ -24,7 +24,9 @@
             </a>
             <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
               <div class="menu-search">
-                <input id="search" type="text" class="validate" placeholder="PROCURA">
+                <form action="./produtos.php" method="get">
+                  <input id="search" name="nomeBusca" type="text" class="validate" placeholder="PROCURA POR PRODUTO">
+                </form>
               </div>
             </ul>
           </div>
@@ -36,7 +38,7 @@
         <ul>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="HOME" href="./"><i class="large material-icons">home</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PRODUTOS" href="./produtos.php"><i class="large material-icons">add_shopping_cart</i></a></li>
-          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PEDIDOS" href="#"><i class="large material-icons">assignment_late</i></a></li>
+          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CATEGORIA" href="./categoria.php"><i class="large material-icons">assignment_late</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="USUARIOS" href="./usuarios.php"><i class="large material-icons">assignment_ind</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGURAÇÕES" href="./configuracao.php?user=<?= $_SESSION['id'] ?>"><i class="large material-icons">settings_applications</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="SAIR" href="../db/logout.php"><i class="large material-icons">open_in_new</i></a></li>

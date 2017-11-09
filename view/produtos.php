@@ -26,8 +26,6 @@
         $msg = 'Erro ao cadastrar o produto';
 
       }
-      /*print_r($param);
-      exit();*/
     } catch (Exception $e) {
       echo $e;
     }
@@ -39,7 +37,44 @@
 
 <?php include_once('../includes/message.php'); ?>
 
-<div class="container">
+<?php if (isset($_GET['nomeBusca'])): ?>
+
+  <div class="container">
+    <div class="row">
+        <?php
+          $busca = $_GET['nomeBusca'];
+          $result = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%$busca%'");
+          while ($products = odbc_fetch_array($result)):
+          $image =  base64_encode($products['imagem']);
+
+        ?>
+          <div class="col s6 m4 cards-produto__card">
+            <div class="card cards-produto__cardchild">
+              <div class="card-image">
+                <img src="<?= 'data:image/jpg;base64,'.$image ?>" width="100%" height="300">
+              </div>
+              <div class="card-content cards-produto__carddesc">
+                <span title="<?= utf8_encode($products['nomeProduto']) ?>" class="title card-title text-black"><?= utf8_decode($products['nomeProduto']) ?></span>
+                <p><?= utf8_encode($products['descProduto']) ?></p>
+              </div>
+              <div class="card-action">
+                <div class="col s12 cardPrice">
+                  <span class="title cardPrice__price valorProd">De: <span class="formatMoney"><?= floatval($products['precProduto']) ?></span></span>
+                  <span class="title cardPrice__price descontoProd">Por: <span class="formatMoney"><?= floatval($products['precProduto']) - floatval($products['descontoPromocao']) ?></span></span>
+                </div>
+                <hr>
+                <a href="./editar?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
+                <a href="#">Deletar</a>
+              </div>
+            </div>
+          </div>
+        <?php endwhile; ?>
+    </div>
+  </div>
+
+<?php else: ?>
+
+  <div class="container">
     <div class="row">
       <div class="col s12 card-panel newProduto">
         <a href="#modal1" class="modal-trigger"><i class="material-icons">exposure_plus_1</i> ADD PRODUTO</a>
@@ -75,9 +110,9 @@
         <?php endwhile; ?>
     </div>
   </div>
-</div>
+  </div>
 
-<div id="modal1" class="modal modalizar">
+  <div id="modal1" class="modal modalizar">
     <div class="row">
     <h4 class="center">Cadastro de Produto</h4>
     <form class="col s12 cadastraProduto" method="post" action="" enctype="multipart/form-data">
@@ -142,7 +177,8 @@
       </div>
     </form>
   </div>
-</div>
+  </div>
+<?php endif; ?>
 
 <script>
   let price = document.querySelectorAll('.formatMoney')

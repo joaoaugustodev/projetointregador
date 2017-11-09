@@ -15,6 +15,10 @@ if (isset($_GET['editarproduto'])) {
 if (isset($_GET['editarUser'])) {
   include_once('../includes/editarusuario.php');
 }
+
+if (isset($_GET['editarcategoria'])) {
+  include_once('../includes/editarcategoria.php');
+}
 ?>
 
 
