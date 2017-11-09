@@ -6,7 +6,7 @@
 <br>
 <br>
 
-<?php 
+<?php
 	if (isset($_POST['insertUser'])) {
 		try {
 			$nome = $_POST['nome'];
@@ -31,16 +31,16 @@
 <?php
 if(isset($_GET['excluir'])){
 	if(is_numeric($_GET['excluir'])){
-		
-		if(odbc_exec($db, "	DELETE FROM 
-								Usuario 
+
+		if(odbc_exec($db, "	DELETE FROM
+								Usuario
 							WHERE
 								idUsuario = {$_GET['excluir']}")){
-			$msg = 'Usuário removido com sucesso';						
+			$msg = 'Usuário removido com sucesso';
 		}else{
 			$erro = 'Erro ao excluir o usuário';
 		}
-		
+
 	}else{
 		$erro = 'Código inválido';
 	}
@@ -53,7 +53,7 @@ if(isset($_GET['excluir'])){
 	<div class="row">
 		<div class="col s12 m12 card-panel m12">
 			<h5 class="center">Listagem de Usuarios</h5>
-				
+
 			<br>
 
 			<div class="wrap-overflow">
@@ -79,17 +79,15 @@ if(isset($_GET['excluir'])){
 						  <td><?= $clients['idUsuario']; ?></td>
 						  <td><?= $clients['loginUsuario']; ?></td>
 						  <td><?= $clients['nomeUsuario']; ?></td>
-
-						  <?php if ($_SESSION['nivel'] == 'A'): ?>
-						  	<?php $idUser = $clients['idUsuario']; ?>
-							  	<td>
-							  		<?= 
-							  			($clients['idUsuario'] > 1 )? "<a href='./editar.php?editarUser=$idUser'><i class='material-icons'>create</i></a>" : "" 
-							  		?>
-						    <?php endif; ?>
-							  	</td>
-							  		<a href='?excluir=<?= $idUser ?>'><i class='material-icons'>delete_forever</i></a>
-							  	</td>
+					  	<?php $idUser = $clients['idUsuario']; ?>
+					  	<td>
+					  		<?=
+					  			($clients['idUsuario'] > 1 )? "<a href='./editar.php?editarUser=$idUser'><i class='material-icons'>create</i></a>" : ""
+					  		?>
+					  	</td>
+              <td>
+					  		<?= ($clients['idUsuario'] > 1 )? "<a href='?excluir=$idUser'><i class='material-icons'>delete_forever</i></a>" : ''?>
+					  	</td>
 					  </tr>
 
 					  <?php endwhile; ?>
@@ -97,7 +95,7 @@ if(isset($_GET['excluir'])){
 			    </table>
 		    </div>
 		</div>
-		
+
 		<?php if ($_SESSION['nivel'] == 'A'): ?>
 			<br>
 

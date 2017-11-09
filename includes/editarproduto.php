@@ -1,6 +1,4 @@
 <?php
-  ini_set('odbc.defaultlrl', 90000000);
-
   if (isset($_POST['produtobtn'])) {
     try {
       $id = $_POST['editarprod'];
@@ -17,10 +15,9 @@
       if (empty($arquivo)) {
         $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ? WHERE idProduto=$id");
       } else {
-
         $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ?, imagem= ? WHERE idProduto=$id");
       }
-      
+
 
 
       if(odbc_execute($stmt, array($nome, $descProduto, $precProduto, $descontoPromocao, $ativoProduto, $qtdMinEstoque, $conteudo))){

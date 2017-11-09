@@ -21,8 +21,8 @@ body {background: #f7f7f7;}
 
 .unload {display: none;}
 .loadinPage {width: 30px; height: 30px; border: 3px solid transparent; position: absolute; left: 50%; top: 50%; transform: tranlate(-50%, -50%); border-radius: 50%;}
-.loadinPage:before {content: ''; width: 30px; height: 30px; border-top: 2px solid #262d2e; border-bottom: 2px solid #262d2e; position: absolute; 
-left: 50%; top: 50%; transform: tranlate(-50%, -50%); border-radius: 50%; 
+.loadinPage:before {content: ''; width: 30px; height: 30px; border-top: 2px solid #262d2e; border-bottom: 2px solid #262d2e; position: absolute;
+left: 50%; top: 50%; transform: tranlate(-50%, -50%); border-radius: 50%;
 animation: loading .3s linear infinite;}
 @keyframes loading {from {transform: rotateZ(0deg)}to {transform: rotateZ(360deg)}}
 
@@ -39,6 +39,10 @@ animation: loading .3s linear infinite;}
 .profile__desc > div {padding: 20px;}
 .profile__atention {padding: 20px !important; position: relative; margin: 10px 0; font-size: 14px; transition: all .2s;}
 .profile__atention > .close {position: absolute; font-size: 18px; right: 10px; top: 16px; cursor: pointer;}
+
+.father {display: flex; flex-wrap: wrap;}
+.cards-produto__card {height: auto; margin-bottom: 40px;}
+.cards-produto__cardchild {height: 100%;}
 
 @media (max-width: 480px) {
 	.overflow {width: 940px;}

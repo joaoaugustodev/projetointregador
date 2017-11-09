@@ -1,3 +1,4 @@
+<?php   ini_set('odbc.defaultlrl', 90000000); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>GStore - ADMIN</title>
 
-      <!-- Compiled and minified CSS -->         
+      <!-- Compiled and minified CSS -->
       <link rel="stylesheet" href="../public/css/materialize.min.css">
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -34,7 +35,7 @@
       <nav class="menuLateral__nav">
         <ul>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="HOME" href="./"><i class="large material-icons">home</i></a></li>
-          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PRODUTOS" href="#"><i class="large material-icons">add_shopping_cart</i></a></li>
+          <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PRODUTOS" href="./produtos.php"><i class="large material-icons">add_shopping_cart</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="PEDIDOS" href="#"><i class="large material-icons">assignment_late</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="USUARIOS" href="./usuarios.php"><i class="large material-icons">assignment_ind</i></a></li>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="CONFIGURAÇÕES" href="./configuracao.php?user=<?= $_SESSION['id'] ?>"><i class="large material-icons">settings_applications</i></a></li>
