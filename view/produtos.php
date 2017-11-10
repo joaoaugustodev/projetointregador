@@ -37,18 +37,19 @@
 
 <?php include_once('../includes/message.php'); ?>
 
-<?php if (isset($_GET['nomeBusca'])): ?>
+<?php 
+    if (isset($_GET['nomeBusca'])):
+      $busca = $_GET['nomeBusca'];
+      $result = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%$busca%'");
+?>
 
   <div class="container">
     <div class="row">
         <?php
-          $busca = $_GET['nomeBusca'];
-          $result = odbc_exec($db, "SELECT * FROM Produto WHERE nomeProduto LIKE '%$busca%'");
           while ($products = odbc_fetch_array($result)):
-          $image =  base64_encode($products['imagem']);
-
+            $image =  base64_encode($products['imagem']);
         ?>
-          <div class="col s6 m4 cards-produto__card">
+          <div class="col s12 m4 cards-produto__card">
             <div class="card cards-produto__cardchild">
               <div class="card-image">
                 <img src="<?= 'data:image/jpg;base64,'.$image ?>" width="100%" height="300">
@@ -63,12 +64,12 @@
                   <span class="title cardPrice__price descontoProd">Por: <span class="formatMoney"><?= floatval($products['precProduto']) - floatval($products['descontoPromocao']) ?></span></span>
                 </div>
                 <hr>
-                <a href="./editar?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
+                <a href="./editar.php?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
                 <a href="#">Deletar</a>
               </div>
             </div>
           </div>
-        <?php endwhile; ?>
+        <?php  endwhile; ?>
     </div>
   </div>
 
@@ -87,7 +88,7 @@
           $image =  base64_encode($products['imagem']);
 
         ?>
-          <div class="col s6 m4 cards-produto__card">
+          <div class="col s12 m4 cards-produto__card">
             <div class="card cards-produto__cardchild">
               <div class="card-image">
                 <img src="<?= 'data:image/jpg;base64,'.$image ?>" width="100%" height="300">
