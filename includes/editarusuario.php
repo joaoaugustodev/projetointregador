@@ -1,5 +1,4 @@
 <?php 
-
   if (isset($_POST['editUser'])) {
     $id = $_GET['editarUser'];
     $nomeUsuario = $_POST['nome'];
@@ -7,7 +6,7 @@
     $tipo = $_POST['tipo'];
     $ativo = $_POST['ativo'];
 
-    $stmt = odbc_prepare($db, "UPDATE Usuario SET nomeUsuario= ?, loginUsuario= ?, tipoPerfil= ? WHERE idUsuario=$id");
+    $stmt = odbc_prepare($db, "UPDATE Usuario SET nomeUsuario= ?, loginUsuario= ?, tipoPerfil= ?, usuarioAtivo = ? WHERE idUsuario=$id");
 
     if(odbc_execute($stmt, array($nomeUsuario, $loginUsuario, $tipo, $ativo))){
       $msg = 'Usuario atualizado com sucesso!';
@@ -49,8 +48,8 @@
            </div>
            <div class="input-field col s12 m6">
              <select name="ativo" class="validate" value="<?= $value['tipoPerfil'] ?>">
-               <option value="true" select>Ativo</option>
-               <option value="false">Desativo</option>
+               <option value="1" select>Ativo</option>
+               <option value="0">Desativo</option>
              </select>
              <label for="userActive">Usuario Ativo</label>
            </div>

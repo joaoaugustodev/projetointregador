@@ -130,8 +130,8 @@ if(isset($_GET['excluir'])){
 			        </div>
 			        <div class="input-field col s12 m6">
 			          <select name="ativo" class="validate">
-			            <option value="1" select>Ativo</option>
-			            <option value="0">Desativo</option>
+			            <option value="True" select>Ativo</option>
+			            <option value="False">Desativo</option>
 			          </select>
 			          <label for="userActive">Usuario Ativo</label>
 			        </div>

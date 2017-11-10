@@ -66,7 +66,7 @@
 
 		<div class="row">
 			<div class="col s12 card-panel">
-				<h4 class="center">Cadastro de Produto</h4>
+				<h4 class="center">Cadastro de Categoria</h4>
 			    <form class="col s12 cadastraProduto" method="post" action="" enctype="multipart/form-data">
 			      <div class="row">
 

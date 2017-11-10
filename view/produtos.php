@@ -102,7 +102,7 @@
                   <span class="title cardPrice__price descontoProd">Por: <span class="formatMoney"><?= floatval($products['precProduto']) - floatval($products['descontoPromocao']) ?></span></span>
                 </div>
                 <hr>
-                <a href="./editar?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
+                <a href="./editar.php?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
                 <a href="#">Deletar</a>
               </div>
             </div>
