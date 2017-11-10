@@ -16,14 +16,18 @@
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
-    <div class="navbar-fixed">
+	
+
+	<div class="navbar-fixed">
+		
       <nav class="white z-depth-1">
+	  
           <div class="nav-wrapper container">
             <a href="./" class="branch">
               <img src="../public/images/logo.png" alt="logotipo" width="60">
             </a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down black-text">
-              <div class="menu-search">
+            <ul id="nav-mobile" class="right black-text">
+              <div class="menu-search btn-large grey lighten-5 black-text"> 
                 <form action="./produtos.php" method="get">
                   <input id="search" name="nomeBusca" type="text" class="validate" placeholder="PROCURA POR PRODUTO">
                 </form>
@@ -33,7 +37,7 @@
       </nav>
     </div>
 
-    <div class="menuLateral">
+    <div class="menuLateral hide-on-med-and-down">
       <nav class="menuLateral__nav">
         <ul>
           <li><a class="tooltipped" data-position="right" data-delay="50" data-tooltip="HOME" href="./"><i class="large material-icons">home</i></a></li>
@@ -45,3 +49,7 @@
         </ul>
       </nav>
     </div>
+	
+
+		
+	

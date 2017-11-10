@@ -57,3 +57,10 @@ animation: loading .3s linear infinite;}
 @media (max-width: 480px) {
 	.overflow {width: 940px;}
 }
+
+.menu-search {
+	
+	border-radius: 35px;
+	
+}
+
