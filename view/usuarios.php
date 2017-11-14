@@ -1,13 +1,12 @@
 <?php
   include_once('../db/verifysession.php');
   include_once('../includes/header.php');
- 
 ?>
 
 <br>
 <br>
 
-<?php 
+<?php
 	if (isset($_POST['insertUser'])) {
 		try {
 			$nome = $_POST['nome'];
@@ -29,14 +28,32 @@
 	}
 ?>
 
+<?php
+if(isset($_GET['excluir'])){
+	if(is_numeric($_GET['excluir'])){
+
+		if(odbc_exec($db, "	DELETE FROM
+								Usuario
+							WHERE
+								idUsuario = {$_GET['excluir']}")){
+			$msg = 'Usuário removido com sucesso';
+		}else{
+			$erro = 'Erro ao excluir o usuário';
+		}
+
+	}else{
+		$erro = 'Código inválido';
+	}
+}
+?>
 <div class="container">
 
 	<?php include_once('../includes/message.php'); ?>
 
 	<div class="row">
-		<div class="col s12 m12 card-panel <?= ($_SESSION['nivel'] == 'A') ? 'm6' : 'm12' ?>">
+		<div class="col s12 m12 card-panel m12">
 			<h5 class="center">Listagem de Usuarios</h5>
-				
+
 			<br>
 
 			<div class="wrap-overflow">
@@ -62,20 +79,15 @@
 						  <td><?= $clients['idUsuario']; ?></td>
 						  <td><?= $clients['loginUsuario']; ?></td>
 						  <td><?= $clients['nomeUsuario']; ?></td>
-
-						  <?php if ($_SESSION['nivel'] == 'A'): ?>
-						  	<?php $idUser = $clients['idUsuario']; ?>
-						  	<td>
-						  		<?= 
-						  			($clients['idUsuario'] > 1 )? "<a href='./editar.php?editarUser=$idUser'><i class='material-icons'>create</i></a>" : "" 
-						  		?>
-						  	</td>
-						  	<td>
-						  		<?= 
-						  			($clients['idUsuario'] > 1 )? "<a href='./editar.php?excluirUser=$idUser'><i class='material-icons'>delete_forever</i></a>" : "" 
-						  		?>
-						  	</td>
-						  <?php endif; ?>
+					  	<?php $idUser = $clients['idUsuario']; ?>
+					  	<td>
+					  		<?=
+					  			($clients['idUsuario'] > 1 )? "<a href='./editar.php?editarUser=$idUser'><i class='material-icons'>create</i></a>" : ""
+					  		?>
+					  	</td>
+              <td>
+					  		<?= ($clients['idUsuario'] > 1 )? "<a href='?excluir=$idUser'><i class='material-icons'>delete_forever</i></a>" : ''?>
+					  	</td>
 					  </tr>
 
 					  <?php endwhile; ?>
@@ -83,10 +95,8 @@
 			    </table>
 		    </div>
 		</div>
-		
-		<?php if ($_SESSION['nivel'] == 'A'): ?>
-			
 
+		<?php if ($_SESSION['nivel'] == 'A'): ?>
 			<br>
 
 			<div class="col s12 m12 card-panel">
@@ -120,17 +130,16 @@
 			        </div>
 			        <div class="input-field col s12 m6">
 			          <select name="ativo" class="validate">
-			            <option value="true" select>Ativo</option>
-			            <option value="false">Desativo</option>
+			            <option value="True" select>Ativo</option>
+			            <option value="False">Desativo</option>
 			          </select>
 			          <label for="userActive">Usuario Ativo</label>
 			        </div>
 			      </div>
-				  <button name="insertUser" class="btn center waves-effect waves-light btn-large">Cadastrar</button>
-					<br>
-			      
-			      	
-			      
+				<br>
+			      <div class="row">
+			      	<button name="insertUser" class="btn">Cadastrar</button>
+			      </div>
 			    </form>
 			  </div>
 			</div>

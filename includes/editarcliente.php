@@ -1,7 +1,6 @@
 <?php 
-
   if (isset($_POST['editar'])) {
-    $id = $_GET['editarClient'];
+    $id = $_POST['editarClient'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -16,9 +15,9 @@
                           telResidencialCliente= ?, dtNascCliente= ? WHERE idCliente=$id");
 
     if(odbc_execute($stmt, array($nome, $email, $senha, $cpf, $telefone, $telefoneresidencial, $telefonecomercial, $data))){
-      $msg = 'Categoria atualizada com sucesso!';
+      $msg = 'Cliente atualizado com sucesso!';
     }else{
-      $msg = 'Erro ao atualizar a categoria';
+      $msg = 'Erro ao atualizar a cliente';
     }
   }
 
@@ -67,7 +66,7 @@
        </div>
 
        <div class="col s12">
-         <button name="insertUser" class="btn center waves-effect waves-light btn-large">Editar</button>
+         <button class="btn submit waves-effect waves-light btn" name="editar">Editar</button>
        </div>
      </div>
    </form>
