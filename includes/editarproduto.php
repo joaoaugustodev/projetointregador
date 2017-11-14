@@ -1,6 +1,4 @@
 <?php
-  ini_set('odbc.defaultlrl', 90000000);
-
   if (isset($_POST['produtobtn'])) {
     try {
       $id = $_POST['editarprod'];
@@ -17,10 +15,9 @@
       if (empty($arquivo)) {
         $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ? WHERE idProduto=$id");
       } else {
-
         $stmt = odbc_prepare($db, "UPDATE Produto SET nomeProduto= ?, descProduto= ?, precProduto= ?, descontoPromocao= ?, ativoProduto= ?, qtdMinEstoque = ?, imagem= ? WHERE idProduto=$id");
       }
-      
+
 
 
       if(odbc_execute($stmt, array($nome, $descProduto, $precProduto, $descontoPromocao, $ativoProduto, $qtdMinEstoque, $conteudo))){
@@ -81,7 +78,7 @@
           </select>
           <label for="phone">Ativo / Desativo</label>
         </div>
-
+  
         <div class="input-field col s12 m6">
           <input id="phone" type="text" name="qtdMinEstoque" class="validate" value="<?= $value['qtdMinEstoque'] ?>">
           <label for="phone">Qtd. Estoque</label>
@@ -92,7 +89,8 @@
         </div>
 
         <div class="input-field col s12 m6">
-          <img src="<?= 'data:image/jpg;base64,'. $image;  ?>" alt="thumnail" id="upimage" width="300" height="auto">
+          <img src="<?= 'data:image/jpg;base64,'. $image;  ?>" alt="thumnail" id="upimage" width="200" height="auto">
+          <p class="msg bold"></p>
         </div>
 
         <button class="btn submit btn" name="produtobtn">Editar</button>
@@ -100,3 +98,31 @@
     </form>
   </div>
 </div>
+
+<script>
+  window['data'].addEventListener('change', function (e) {
+    const reader = new FileReader()
+    const button = document.querySelector('.submit')
+    const message = document.querySelector('.msg')
+
+    if (e.target.files[0].size / 1024 > 300) {
+
+      button.disabled = true
+      message.innerHTML = 'Imagem deve ter menos que 300KB'
+      message.classList.add('red-text')
+      window['upimage'].src = ''
+
+    } else {
+      reader.onload = function(){
+        const dataURL = reader.result
+        button.disabled = false
+        message.innerHTML = ''
+        message.classList.remove('red-text')
+        const output = window['upimage']
+        output.src = dataURL
+      }
+
+      reader.readAsDataURL(e.target.files[0])
+    }
+  })
+</script>

@@ -1,7 +1,6 @@
 <?php 
-
-  if (isset($_POST['editbtn'])) {
-    $id = $_GET['editarClient'];
+  if (isset($_POST['editar'])) {
+    $id = $_POST['editarClient'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
@@ -67,7 +66,7 @@
        </div>
 
        <div class="col s12">
-         <button name="editbtn" class="btn center waves-effect waves-light btn-large">Editar</button>
+         <button class="btn submit waves-effect waves-light btn" name="editar">Editar</button>
        </div>
      </div>
    </form>
