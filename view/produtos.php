@@ -39,7 +39,6 @@
 <?php include_once('../includes/message.php');
  ?>
 
-
 <?php 
     if (isset($_GET['nomeBusca'])):
       $busca = $_GET['nomeBusca'];
