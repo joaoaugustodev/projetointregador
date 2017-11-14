@@ -29,6 +29,25 @@
     overflow: hidden;
     transition: transform .2s;
 }
+
+
+.btnLogin{
+	
+	width: 150px;
+    height: 50px;
+    font-weight: 200;
+    background-color: #ff3366;
+    border: 1px solid #ff3366;
+    border-radius: 35px;
+    transition: width .5s;
+    opacity: 1 !important;
+    margin-right: 0 !important;
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s;	
+	
+	
+}
 .btn.submit {margin: 0;}
 /* botão de login */
 .btn:before {
