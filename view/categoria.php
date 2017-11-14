@@ -1,6 +1,7 @@
 <?php
   include_once('../db/verifysession.php');
   include_once('../includes/header.php');
+  include_once('../includes/excluircategoria.php');
 
   if (isset($_POST['cadastrabtn'])) {
   	$nome = $_POST['nome'];
