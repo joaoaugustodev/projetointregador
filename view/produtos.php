@@ -1,6 +1,7 @@
 <?php
   include_once('../db/verifysession.php');
   include_once('../includes/header.php');
+  include_once('../includes/excluirproduto.php');
 
   if (isset($_POST['produtobtn'])) {
     try {
@@ -35,7 +36,8 @@
 <br>
 <br>
 
-<?php include_once('../includes/message.php'); ?>
+<?php include_once('../includes/message.php');
+ ?>
 
 <?php 
     if (isset($_GET['nomeBusca'])):
@@ -65,7 +67,7 @@
                 </div>
                 <hr>
                 <a href="./editar.php?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
-                <a href="#">Deletar</a>
+                <a href="?excluirproduto=<?= $products['idProduto'];?>"></a>
               </div>
             </div>
           </div>
@@ -104,7 +106,7 @@
                 </div>
                 <hr>
                 <a href="./editar.php?editarproduto=<?= $products['idProduto'] ?>">Editar</a>
-                <a href="#">Deletar</a>
+                <a href="?excluirproduto=<?= $products['idProduto'];?>">Deletar</a>
               </div>
             </div>
           </div>
