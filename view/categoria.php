@@ -4,11 +4,11 @@
   include_once('../includes/excluircategoria.php');
 
   if (isset($_POST['cadastrabtn'])) {
-  	$nome = $_POST['nome'];
-  	$descricao = $_POST['descCategoria'];
+  	$nome = utf8_encode($_POST['nome']);
+  	$descricao =  utf8_encode($_POST['descCategoria']);
 
   	$stmt = odbc_prepare($db, "INSERT INTO Categoria(nomeCategoria, descCategoria) VALUES(?, ?)");
-      $param = array($nome, descricao);
+      $param = array($nome,($descricao));
 
 	if(odbc_execute($stmt, $param)){
 	   $msg = 'Categoria cadastrada com sucesso!';
@@ -47,9 +47,9 @@
 									while ($categoria = odbc_fetch_array($query)):
 							?>
 							<tr>
-								<td><?= utf8_encode($categoria['idCategoria']); ?></td>
-								<td><div class="nowrap"><?= utf8_encode($categoria['nomeCategoria']); ?></div></td>
-								<td><div class="nowrap"><?= utf8_encode($categoria['descCategoria']); ?></div></td>
+								<td><?= utf8_decode($categoria['idCategoria']); ?></td>
+								<td><div class="nowrap"><?= utf8_decode($categoria['nomeCategoria']); ?></div></td>
+								<td><div class="nowrap"><?= utf8_decode($categoria['descCategoria']); ?></div></td>
 								<td><a href="./editar.php?editarcategoria=<?= $categoria['idCategoria'];?>"><i class="material-icons">create</i></a></td>
 								<td><a href="?excluircategoria=<?= $categoria['idCategoria'];?>"><i class="material-icons">delete_forever</i></a></td>
 							</tr>
@@ -68,7 +68,7 @@
 		<div class="row">
 			<div class="col s12 card-panel">
 				<h4 class="center">Cadastro de Categoria</h4>
-			    <form class="col s12 cadastraProduto" method="post" action="" enctype="multipart/form-data">
+			    <form class="col s12 cadastraProduto" method="post" action="">
 			      <div class="row">
 
 			        <div class="input-field col s6">
@@ -77,8 +77,8 @@
 			        </div>
 
 			        <div class="input-field col s6">
-			        <input id="email" type="text" class="validate" name="descCategoria" required>
-			          <label for="last_name">Descrição</label>
+					  <input id="desc" type="text" class="validate" name="descCategoria" required>
+			          <label for="desc">Descrição</label>
 			        </div>
 
 			        <button class="btn cadastra" name="cadastrabtn">Cadastrar</button>
