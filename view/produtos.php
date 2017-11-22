@@ -9,7 +9,7 @@
       $idUser = $_SESSION['id'];
       $nome = utf8_encode($_POST['nome']);
       $categoria = $_POST['categoria'];
-      $descProduto = utf8_decode($_POST['descProd']);
+      $descProduto = utf8_encode($_POST['descProd']);
       $product_preco = str_replace(',', '.', str_replace('.', '', $_POST['precProduto']));
       $product_desconto = str_replace(',', '.', str_replace('.', '', $_POST['descontoPromocao']));
       $ativoProduto = $_POST['ativoProduto'];
@@ -57,8 +57,8 @@
                 <img src="<?= 'data:image/jpg;base64,'.$image ?>" width="100%" height="300">
               </div>
               <div class="card-content cards-produto__carddesc">
-                <span title="<?= utf8_encode($products['nomeProduto']) ?>" class="title card-title text-black"><?= utf8_decode($products['nomeProduto']) ?></span>
-                <p><?= utf8_encode($products['descProduto']) ?></p>
+                <span title="<?= utf8_decode($products['nomeProduto']) ?>" class="title card-title text-black"><?= utf8_decode($products['nomeProduto']) ?></span>
+                <p><?= utf8_decode($products['descProduto']) ?></p>
               </div>
               <div class="card-action">
                 <div class="col s12 cardPrice">
@@ -96,8 +96,8 @@
                 <img src="<?= 'data:image/jpg;base64,'.$image ?>" width="100%" height="300">
               </div>
               <div class="card-content cards-produto__carddesc">
-                <span title="<?= utf8_encode($products['nomeProduto']) ?>" class="title card-title text-black"><?= utf8_decode($products['nomeProduto']) ?></span>
-                <p><?= utf8_encode($products['descProduto']) ?></p>
+                <span title="<?= utf8_decode($products['nomeProduto']) ?>" class="title card-title text-black"><?= utf8_decode($products['nomeProduto']) ?></span>
+                <p><?= utf8_decode($products['descProduto']) ?></p>
               </div>
               <div class="card-action">
                 <div class="col s12 cardPrice">
