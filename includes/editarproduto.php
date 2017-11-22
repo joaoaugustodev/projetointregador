@@ -34,7 +34,6 @@
   $query = odbc_exec($db, "SELECT * FROM Produto WHERE idProduto=$id");
   $value = odbc_fetch_array($query);
   $desc = utf8_decode($value['descProduto']);
-  $nome = utf8_decode($value['nomeProduto']);
 
   $image =  base64_encode($value['imagem']);
 ?>
@@ -48,7 +47,7 @@
       <div class="row">
 
         <div class="input-field col s6">
-          <input placeholder="Placeholder" name="nome" id="first_name" type="text" class="validate" value="<?= $nome ?>">
+          <input placeholder="Placeholder" name="nome" id="first_name" type="text" class="validate" value="<?= $value['nomeProduto'] ?>">
           <label for="first_name">Nome</label>
         </div>
 

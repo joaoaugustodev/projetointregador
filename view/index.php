@@ -75,8 +75,8 @@
 							?>
 							<tr>
 								<td><?= utf8_encode($products['idProduto']); ?></td>
-								<td><div class="nowrap"><?= utf8_decode($products['nomeProduto']); ?></div></td>
-								<td><div class="nowrap"><?= utf8_decode($products['descProduto']); ?></div></td>
+								<td><div class="nowrap"><?= utf8_encode($products['nomeProduto']); ?></div></td>
+								<td><div class="nowrap"><?= utf8_encode($products['descProduto']); ?></div></td>
 								<td><a href="./editar.php?editarproduto=<?= $products['idProduto'];?>"><i class="material-icons">create</i></a></td>
 								<td><a href="?excluirproduto=<?= $products['idProduto'];?>"><i class="material-icons">delete_forever</i></a></td>
 							</tr>

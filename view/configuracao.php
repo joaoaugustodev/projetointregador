@@ -91,5 +91,3 @@ if (isset($_POST['profileimage'])) {
 	    }
 	})
 </script>
-
-<?php include_once('../includes/footer.php'); ?>
