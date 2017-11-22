@@ -48,9 +48,9 @@
                                                 <label for="pass" class="white-text">senha</label>
                                             </div>
                                             </div>
-                                            <br><br>
+                                            
                                             <div class="center">
-                                                <button class="btn waves-effect waves-light hoverable z-depth-1" type="submit" name="action">entrar</button>
+                                                <button class="btnLogin waves-effect waves-light hoverable z-depth-1" type="submit" name="action">entrar</button>
                                             </div>  
                                         </div>                                  
                                     </form>
