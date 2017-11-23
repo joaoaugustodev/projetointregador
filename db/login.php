@@ -1,34 +1,25 @@
 <?php
 
+include('./db/conection.php');
+
 if (isset( $_REQUEST['user']) && isset($_REQUEST['password'])) {
     session_start();
     
+
     $user = $_REQUEST['user'];
     $pass = $_REQUEST['password'];
-    
-    
-    $db_host = "senacprojeto.database.windows.net";
-    $db_name = "PI2";
-    $db_user = "senacii";
-    $db_pass = "Senac2017";
-    $dsn = "Driver={SQL Server};Server=$db_host;Port=1433;Database=$db_name;";
-    
-    if( !$db = odbc_connect($dsn, $db_user, $db_pass)){
-        echo "Erro ao conectar ao BANCO DE DADOS";
-        exit();
-    }
-    
-    $stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
+
+
+    $stmt = odbc_prepare($db, 'SELECT idUsuario, nomeUsuario, tipoPerfil, usuarioAtivo FROM Usuario WHERE loginUsuario = ? AND senhaUsuario = ?');
     odbc_execute($stmt, array($user, $pass));
     $usuario = odbc_fetch_array($stmt);
     
-    if ($usuario) {
+    if ($usuario && $usuario['usuarioAtivo'] == '1') {
        $_SESSION['user'] = $user;
+       $_SESSION['nivel'] = $usuario['tipoPerfil'];
+       $_SESSION['id'] = $usuario['idUsuario'];
        header('Location: ./view/');
     } else {
-        $msg = 'true';
+        $msg = 'Login / senha inválidos ou usuario inativo!';
     }
-    
-} else {
-    echo '';
 }

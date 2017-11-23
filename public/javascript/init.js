@@ -1,3 +1,4 @@
 $(document).ready(function () {
-	window.console.log('test')
+  $('select').material_select()
+  $('.modal').modal()
 })
