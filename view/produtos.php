@@ -80,7 +80,7 @@
   <div class="container">
     <div class="row">
       <div class="col s12 card-panel newProduto">
-        <a href="#modal1" class="modal-trigger"><i class="material-icons">exposure_plus_1</i> ADD PRODUTO</a>
+        <a href="#modal1" class="modal-trigger">CADASTRAR PRODUTO</a>
       </div>
 
       <div class="col s12 father">

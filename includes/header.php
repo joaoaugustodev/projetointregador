@@ -42,7 +42,7 @@
 			 
 			  
                 <form action="./produtos.php" method="get">
-                  <input id="search" name="nomeBusca" type="text" class="validate" placeholder="PROCURA POR PRODUTO">
+                  <input id="search" name="nomeBusca" type="text" class="validate" placeholder="BUSCAR PRODUTO">
                 </form>
               </div>
             </ul>
