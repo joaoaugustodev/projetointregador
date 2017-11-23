@@ -9,7 +9,7 @@ if(isset($_GET['excluircategoria'])){
 		  $msg = 'Erro ao excluir o categoria';
 		}
 	} else {
-		$msg = 'Erro ao excluir o produto existe pedido com esse categoria';
+		$msg = 'Não é possivel excluir essa categoria, existem produtos cadastrados relacionados a ela.';
 	}
 }
 
